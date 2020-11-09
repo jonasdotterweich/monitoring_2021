@@ -51,3 +51,32 @@ pairs(meuse)
 #Question/excersise for the weekend:
 #pairing only some parts of the dataset not the total one
 #pairing only cadmium, copper, lead, zinc
+
+#my answer:
+ds<-data.frame(cadmium, copper, lead, zinc)
+pairs(ds)
+
+
+# New Lesson 09.11.2020
+# first excersise to reload the sp pacage and get the meuse data back, aswer to that:
+
+library(sp)
+data(meuse)
+head(meuse)
+
+#back to the question for the weekend
+#pairing only some parts of the dataset not the total one
+#pairing only cadmium, copper, lead, zinc
+# those are in the collums three to six
+pairs(meuse[,3:6])
+
+#let's use the collum names
+pairs(~cadmium+copper+leald+zinc, data=meuse)
+#this ~ (tilde) means = in r   in mac alt+5  // and the = mean "is"
+
+#let's prettify the graph
+#Excersize change the color
+
+pairs(meuse[,3:6], col='blue')
+#or
+pairs(meuse[,3:6], col="blue")
