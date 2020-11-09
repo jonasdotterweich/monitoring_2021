@@ -80,3 +80,12 @@ pairs(~cadmium+copper+leald+zinc, data=meuse)
 pairs(meuse[,3:6], col='blue')
 #or
 pairs(meuse[,3:6], col="blue")
+
+#Changing the symbol
+
+pairs(meuse[,3:6], col='blue', pch=17)
+
+#increase the size
+pairs(meuse[,3:6], col='blue', pch=17, cex=3)
+
+#good link for pairs graphs: https://statisticsglobe.com/r-pairs-plot-example/
