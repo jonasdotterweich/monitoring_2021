@@ -72,3 +72,23 @@ setwd("/Users/JD/lab")
 # importing the table
 covid<-read.table("covid_agg.csv", header=TRUE)
 covid
+
+#################################### next lecture 20.11.20
+setwd("/Users/JD/lab")
+covid<-read.table("covid_agg.csv", header=TRUE) #Header is a logical variable: if there is a table with a header(first row is names of variables), header=TRUE needs to be put in
+covid
+
+head(covid)
+summary(covid)
+
+#names of variables
+names(covid)
+
+#ggplot
+library(ggplot2)
+ggplot(covid, aes(x = lon, y = lat)) + geom_point() #aes is aesthetics
+
+#changing the size of data
+ggplot(covid, aes(x = lon, y = lat, size=cases)) + geom_point()
+
+
