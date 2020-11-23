@@ -48,4 +48,46 @@ coastlines<-readOGR("ne_10m_coastline.shp") #coastlines imported under the name 
 density_map <- density(covid_planar)
 plot(density_map)
 points(covid_planar)
-plot(coastlines, add=TRUE)
+plot(coastlines, add=TRUE) # add=TRUE means that the coastlines will be plotted in the same graph
+
+### or ###
+
+cl <- colorRampPalette(c('pink','green','orange','red','magenta'))(100) # 
+plot(density_map, col = cl)
+points(covid_planar, pch=16)
+plot(coastlines, add = TRUE)
+
+cl <- colorRampPalette(c('pink','green','orange','red','magenta'))(100) # 
+plot(density_map, col = cl)
+points(covid_planar, pch=16, cex=0.25) #decreasing the size of the points
+plot(coastlines, add = TRUE)
+
+#to save as a figure oin lab folder (because wd is set to there)
+
+png("figute 1.png")
+cl <- colorRampPalette(c('pink','green','orange','red','magenta'))(100) # 
+plot(density_map, col = cl)
+points(covid_planar, pch=16, cex=0.25) #decreasing the size of the points
+plot(coastlines, add = TRUE)
+dev.off()
+
+### or ###
+
+pdf("figure1.pdf")
+cl <- colorRampPalette(c('pink','green','orange','red','magenta'))(100) # 
+plot(density_map, col = cl)
+points(covid_planar, pch = 19, cex = 0.5)
+plot(coastlines, add = TRUE)
+dev.off()
+
+#ggsave can be used to more elaborately safe files
+
+#if we want to simplify a big file like costlines: coastlines_simp <- gSimplify(coastlines, tol = 3, topologyPreserve = TRUE)
+
+#now wea are going to do an interpolation
+
+marks(covid_planar) <- cases #we are linking/marking the cases (collum in data) to the covid_planer
+cases_map<-Smooth(covid_planar)
+
+plot(cases_map, col=cl)
+plot(coastlines, add=T)
