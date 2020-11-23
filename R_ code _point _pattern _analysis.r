@@ -27,3 +27,8 @@ cl2<-colorRampPalette(c("darkblue", "purple","magenta","orange","red"))(100)
 install.packages("rgdal")
 library(sp)
 library(rgdal)
+
+
+###### lecture 23.11.20
+setwd("/Users/JD/lab)
+covid<-read.table("covid_agg.csv", header=TRUE)
