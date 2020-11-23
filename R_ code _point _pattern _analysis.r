@@ -2,7 +2,7 @@
 
 library(spatstat)
 
-setwd("/Users/JD/lab)
+setwd("/Users/JD/lab")
 covid<-read.table("covid_agg.csv", header=TRUE)
 
 #lets see the density
@@ -30,5 +30,22 @@ library(rgdal)
 
 
 ###### lecture 23.11.20
-setwd("/Users/JD/lab)
+
+setwd("/Users/JD/lab")
 covid<-read.table("covid_agg.csv", header=TRUE)
+attach(covid)
+covid_planar <- ppp(lon, lat, c(-180,180), c(-90,90))
+density_map <- density(covid_planar)
+plot(density_map)
+points(covid_planar)
+### this was a repetition of the previous lecture
+
+library(sp)
+library(rgdal)
+
+coastlines<-readOGR("ne_10m_coastline.shp") #coastlines imported under the name coastlines
+
+density_map <- density(covid_planar)
+plot(density_map)
+points(covid_planar)
+plot(coastlines, add=TRUE)
