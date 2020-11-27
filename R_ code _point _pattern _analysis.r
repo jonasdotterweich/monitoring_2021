@@ -33,7 +33,7 @@ library(rgdal)
 
 setwd("/Users/JD/lab")
 covid<-read.table("covid_agg.csv", header=TRUE)
-attach(covid)
+attach(covid)  #if you do not attach use: covid$lon etc..
 covid_planar <- ppp(lon, lat, c(-180,180), c(-90,90))
 density_map <- density(covid_planar)
 plot(density_map)
@@ -91,3 +91,39 @@ cases_map<-Smooth(covid_planar)
 
 plot(cases_map, col=cl)
 plot(coastlines, add=T)
+
+############Lesson 27.11.20########
+##interpolate case data
+#Plotting points with different size together with the covid data with the interpolation
+
+setwd("/Users/JD/lab")
+libraray(spatstat)
+library(rgdal)
+covid<-read.table("covid_agg.csv", header=TRUE) #or read.csv
+attach(covid)
+covid_planar <- ppp(lon, lat, c(-180,180), c(-90,90))
+marks(covid_planar) <- cases
+cases_map<-Smooth(covid_planar)
+cl<-colorRampPalette(c('lightpink2','lightsalmon','tomato1','red3','maroon'))(100)
+plot(cases_map, col=cl)
+
+install.packages("sf")
+library(sf)                 ###then convert objct to sf
+Spoints<-st_as_sf(covid, coords=c("lon", "lat"))
+plot(Spoints, cex=Spoints$cases, col="purple3", lwd=3, add=T)
+#explanation for function above: charakers as big as cases by spoints$cases, and lwd is line widht
+#yet the plot display too big of a point because the casses are hing so we have to have a divisor
+plot(cases_map, col=cl)
+plot(Spoints, cex=Spoints$cases/10000, col="purple3", lwd=3, add=T)
+
+####there is a problem here that should be solved:  points are not the same as duccio's, how to solve it?
+
+#to put the coastline around:
+library(rgdal)
+coastlines <- readOGR("ne_10m_coastline.shp")
+plot(coastlines, add=T)
+
+
+
+
+
