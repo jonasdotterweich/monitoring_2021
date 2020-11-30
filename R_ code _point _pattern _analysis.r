@@ -123,7 +123,23 @@ library(rgdal)
 coastlines <- readOGR("ne_10m_coastline.shp")
 plot(coastlines, add=T)
 
+#####lecture 30.11.20####
 
+setwd("/Users/JD/lab")
+leo<-read.table("dati_zabotti.csv")#this is faulty!
+head(leo)
+attach(leo)
+library(spatstat)
+leo_ppp <- ppp(x, y, c(2300000,2325000), c(5005000,5045000))
 
+# or maybe:;This is the solution
+setwd("/Users/JD/lab")
+leo<-read.table("dati_zabotti.csv", header=T, sep=",")
+head(leo)
+attach(leo)
+leo_ppp <- ppp(x, y, c(2300000,2325000), c(5005000,5045000))
+plot(leo)
 
-
+density_map <- density(leo_ppp)
+plot(density_map)
+points(leo_ppp)
