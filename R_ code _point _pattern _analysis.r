@@ -143,3 +143,61 @@ plot(leo)
 density_map <- density(leo_ppp)
 plot(density_map)
 points(leo_ppp)
+
+
+######### lesson 04.12.20 #######
+#interpolation o students data
+
+setwd("/Users/JD/lab")
+load("point_pattern_analysis.RData")
+
+ls()
+head(leo)
+library(spatstat)
+attach(leo)
+marks(leo_ppp) <- chlh
+chlh_map <- Smooth(leo_ppp)
+ 
+cl <- colorRampPalette(c('yellow','orange','red','green'))(100)  
+plot(chlh_map, col=cl)
+points(leo_ppp)
+
+# Exercise: do the same for chls in the sediment
+
+marks(leo_ppp) <- chls
+
+chls_map <- Smooth(leo_ppp)
+plot(chls_map, col=cl)
+points(leo_ppp)
+
+#mltipanel
+#fuction par(mfrow=c 1,3 ) heißt soviel wie multiframe 1 row, 3 collums
+
+par(mfrow=c (1,3))
+
+#first graph density map
+plot(density_map, col=cl)
+points(leo_ppp)
+
+#second graph
+plot(chlh_map, col=cl)
+points(leo_ppp)
+
+#third graph
+plot(chls_map, col=cl)
+points(leo_ppp)
+
+# excersize: build a multipanal with three rows and one collum
+par(mfrow=c (3,1))
+
+#first graph density map
+plot(density_map, col=cl)
+points(leo_ppp)
+
+#second graph
+plot(chlh_map, col=cl)
+points(leo_ppp)
+
+#third graph
+plot(chls_map, col=cl)
+points(leo_ppp)
