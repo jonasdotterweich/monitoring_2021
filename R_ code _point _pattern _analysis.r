@@ -146,7 +146,7 @@ points(leo_ppp)
 
 
 ######### lesson 04.12.20 #######
-#interpolation o students data
+#interpolation of students data
 
 setwd("/Users/JD/lab")
 load("point_pattern_analysis.RData")
@@ -201,3 +201,9 @@ points(leo_ppp)
 #third graph
 plot(chls_map, col=cl)
 points(leo_ppp)
+
+
+############## Lecture 11.12.20
+
+setwd("/Users/JD/lab")
+load("biomes_multivar.RData")
