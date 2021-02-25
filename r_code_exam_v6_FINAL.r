@@ -11,6 +11,8 @@ ndvi14<-raster("c_gls_NDVI300_201401010000_GLOBE_PROBAV_V1.0.1.nc")
 ndvi15<-raster("c_gls_NDVI300_201501010000_GLOBE_PROBAV_V1.0.1.nc")
 ndvi16<-raster("c_gls_NDVI300_201601010000_GLOBE_PROBAV_V1.0.1.nc")
 ndvi17<-raster("c_gls_NDVI300_201701010000_GLOBE_PROBAV_V1.0.1.nc")
+#not used becaus Snow cover data starts only in 2018
+
 
 ndvi18<-raster("c_gls_NDVI300_201801010000_GLOBE_PROBAV_V1.0.1.nc")
 ndvi19<-raster("c_gls_NDVI300_201901010000_GLOBE_PROBAV_V1.0.1.nc")
