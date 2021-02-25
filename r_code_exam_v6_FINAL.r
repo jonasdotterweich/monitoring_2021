@@ -31,7 +31,8 @@ plot(ndvi14eu)
 ndvi14eu <- reclassify(ndvi14eu, cbind(250:255, NA)) #does not work
 
 #new colorramppallette
-cl<-colorRampPalette(c('white','yellow','darkorange2','darkorange4','darkolivegreen4','darkgreen','dodgerblue4'))(100)
+cl<-colorRampPalette(c('white','yellow','darkorange2','darkorange4',
+                       'darkolivegreen4','darkgreen','dodgerblue4'))(100)
 
 par(mfrow=c(2,2))
 
