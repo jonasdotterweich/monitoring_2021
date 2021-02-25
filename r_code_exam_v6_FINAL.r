@@ -20,10 +20,7 @@ ndvi20<-raster("c_gls_NDVI300_202001010000_GLOBE_PROBAV_V1.0.1.nc")
 ndvi21<-raster("c_gls_NDVI300_202101010000_GLOBE_PROBAV_V1.0.1.nc")
 
 ext<-c(-10, 20, 35, 60)
-ndvi14eu<-crop(ndvi14, ext)
-ndvi15eu<-crop(ndvi15, ext)
-ndvi16eu<-crop(ndvi16, ext)
-ndvi17eu<-crop(ndvi17, ext)
+
 ndvi18eu<-crop(ndvi18, ext)
 ndvi19eu<-crop(ndvi19, ext)
 ndvi20eu<-crop(ndvi20, ext)
