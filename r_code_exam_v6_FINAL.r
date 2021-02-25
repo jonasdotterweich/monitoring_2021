@@ -60,6 +60,9 @@ sc21eu<-crop(sc21, ext)
  
  cl2<-colorRampPalette(c('white','cornsilk2','bisque2','azure2','darkslategray3'))(100)
  
+library(maps)
+library(mapdata)
+
 par(mfrow=c(2,2))
 plot(sc18eu, main="Snow Cover Data 01.01.18", col=cl2)
 map('worldHires', add=T)
