@@ -25,3 +25,21 @@ library(RColorBrewer)
 setwd("/Users/JD/lab/exam/")
 nox_18<-stack("CAMS-GLOB-ANT_v4.2_nox_2018.nc")
 nox_18
+
+
+
+#trying to figure out the extent to zoom to germany or somwhere else by utilyzing previously used data
+
+
+
+library(rasterdiv)
+library(raster)
+data(copNDVI)
+plot(copNDVI)
+copNDVI <- reclassify(copNDVI, cbind(253:255, NA))
+plot(copNDVI)
+exteu<-c(10,15,48,52)
+copNDVI2<-crop(copNDVI, exteu)
+#fail
+
+
