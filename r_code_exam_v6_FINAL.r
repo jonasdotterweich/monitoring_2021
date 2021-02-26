@@ -95,3 +95,16 @@ difsnow21/11<-difsnow20/21-difsnow10/11
 plot(difsnow21/11)
 
 #the last part was hypothetical tho show the code for plotting a difference 
+
+#making a plot
+#mean temperatures europe in january
+
+
+citynames<-c('Helsinki','Berlin', 'Budapest', 'London', 'Paris', 'Copenhagen', 'Rome', 'Madrid', 'Athens')
+tempjan<-c(-1.3,2.8,1.2,8.1,6.9,5.4,11.9,10.7,13.4)
+
+ct<-data.frame(citynames,tempjan)
+
+library(ggplot2)
+
+ggplot(ct, aes(x=citynames, y=tempjan))+geom_point(,col="black", size=5)
