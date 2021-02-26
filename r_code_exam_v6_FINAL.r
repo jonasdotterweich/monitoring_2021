@@ -108,3 +108,7 @@ ct<-data.frame(citynames,tempjan)
 library(ggplot2)
 
 ggplot(ct, aes(x=citynames, y=tempjan))+geom_point(,col="black", size=5)
+
+#trying to add a trendline which didnt work
+
+ggplot(ct, aes(x=citynames, y=tempjan))+geom_point(,col="black", size=5)+geom_smooth(method = "lm", col="red",size=3)
